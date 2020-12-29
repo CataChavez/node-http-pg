@@ -70,7 +70,7 @@
       e.preventDefault();
       const nombre = e.target[1].value;
       axios
-        .delete("http://localhost:3000/ejercicios?nombre=" + nombre)
+        .delete("http://localhost:3000/ejercicios?name=" + nombre)
         .then((res) => {
           res.data.code ? alert("Error codigo: " + res.data.code) : getData(e);
         });
@@ -103,10 +103,10 @@
       ejercicios.forEach((e) => {
         tbody.innerHTML += `
               <tr>
-                  <td>${e.nombre}</td>
+                  <td>${e.name}</td>
                   <td>${e.series}</td>
-                  <td>${e.repeticiones}</td>
-                  <td>${e.descanso} segundos</td>
+                  <td>${e.repetitions}</td>
+                  <td>${e.rest} minutos</td>
               </tr>
           `;
       });
@@ -122,12 +122,12 @@
   
       ejercicios.forEach((e, i) => {
         selectores[0].innerHTML += `
-            <option value="${e.nombre}">${e.nombre}</option>
+            <option value="${e.name}">${e.name}</option>
           `;
       });
       ejercicios.forEach((e, i) => {
         selectores[1].innerHTML += `
-            <option value="${e.nombre}">${e.nombre}</option>
+            <option value="${e.name}">${e.name}</option>
           `;
       });
     }
